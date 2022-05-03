@@ -5,4 +5,4 @@
 
 # Process(진행과정)
 - Linux Server 구축 완료(2022.04.20 21:50) <Ubuntu 20.04 LTS, Apache2, FTP, PHP, MySQL> : 이용환
-- 회원가입 완료(2022.04.29) <html> : 윤도연
+- 회원가입 완료(2022.04.29) <HTML> : 윤도연
