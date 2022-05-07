@@ -7,3 +7,5 @@
 - Linux Server 구축 완료(2022.04.20 21:50) <Ubuntu 20.04 LTS, Apache2, FTP, PHP, MySQL> : 이용환
 - 회원가입 완료(2022.04.29) <HTML, CSS> : 윤도연
 - 로그인 완료(2022.04.29) <HTML, CSS> : 이재연
+- 로그인, 회원가입 HTML 수정(2022.05.03) <HTML, CSS> : 나현우
+- CSS 로그인 완료 (2022.05.07) <HTML, CSS> : 나현우
