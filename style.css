@@ -1,0 +1,198 @@
+:root
+      {
+	--body-background-color: #f5f6f7;
+         --white-color: #ffffff;
+	--font-color: #4e4e4e;
+	--border-gray-color : #dadada;
+	--black-color: #333333;
+	--border_black-color: #808080;
+         --background-gray-color: #e1e1e1;
+         --ssss: #c8c8c8;
+      }
+
+     *{
+	margin:0;
+	padding:0;
+       }
+
+body{
+	background:var(--body-background-color);
+}
+
+.signIn_main{
+         width:360px;
+ 	display:flex;
+	flex-direction:column;
+	align-items:center;
+        background:var(--background-gray-color);
+        border-radius: 10px 10px 10px 10px / 10px 10px 10px 10px;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-60%);
+}
+.input_section{
+         width:357px;
+         height:416px;
+ 	display:flex;
+	flex-direction:column;
+	align-items:center;
+        background:var(--white-color);
+        border: 1.5px solid var(--border_black-color);
+      border-bottom-style: hidden;
+       border-radius: 10px 10px 10px 0px / 10px 10px 10px 0px;
+}
+.input_section .logo_art{
+	padding-top: 30px;
+}
+.input_section .logo_art img
+{
+	width: 300px;
+	height: 130px;
+}
+.input_section .logo_art{
+	display:flex;	
+	flex-direction: column;
+	align-items: center;
+}
+.signIn_ID{
+         margin-top: 25px;
+	width: 300px;
+	height :48px;
+	border: solid 1px var(--border-gray-color );
+         border-radius: 5px 5px 0px 0px / 5px 5px 0px 0px;
+	background: white;
+}
+.signIn_PW{
+	margin-top: 3px;
+	width: 300px;
+	height :48px;
+	border: solid 1px var(--border-gray-color );
+         border-radius: 0px 0px 5px 5px / 0px 0px 5px 5px;
+	background: white;
+}
+.signIn_ID input{
+	border: none;
+	width: 280px;
+	margin-top: 10px;
+	font-size: 16px;
+	margin-left: 10px;
+	height:30px;
+}
+.signIn_PW input{
+	border: none;
+	width: 280px;
+	margin-top: 10px;
+	font-size: 16px;
+	margin-left: 10px;
+	height:30px;
+}
+input:focus {outline:none;}
+
+.rememberMe_checkbox{
+	width: 300px;
+	height: 30px;
+	
+	display: flex;
+	font-size: 13px;
+	color: #4e4e4e;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.signIn_button {
+    background: rgba(96,96,0,0.5);
+    color: white;
+    border: 1px solid #e8e8e8;
+    
+    width: 300px;
+    margin-top: 35px;
+    font-size: 18px;
+    height:48px;
+
+    letter-spacing: 0px;
+
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
+
+    margin-bottom: 15px;
+}
+.signIn_button:hover{
+    background-color: #f8f8f8;
+    color: #888;
+    transition: all 0.1s;
+}
+
+.OB_signIn{
+        width: 120px;
+        height: 40px;
+        padding-top: 11.5px;
+        padding-bottom: 13px;
+	font-size: 12px;
+
+	background: var(--white-color);
+	color: black;
+	border: solid 1.5px var(--border_black-color);
+         border-top-style: hidden;
+         border-radius: 0px 0px 10px 10px / 0px 0px 10px 10px;
+         border-collapse: collapse;
+          cursor: pointer;
+         float: left;
+}
+.OB_forgotIDPW{
+        width: 120px;
+        height: 40px;
+        padding-top: 11.5px;
+        padding-bottom: 13px;
+	font-size: 12px;
+	background: var(--background-gray-color);
+	color: gray;
+	border: solid 1.5px var(--ssss);
+         border-top-color: var(--border_black-color);
+        border-left-width: 0px;
+         border-radius: 0px 0px 0px 0px / 0px 0px 0px 0px;
+        cursor: pointer;
+         float: left;
+}
+.OB_signUp{
+        width: 120px;
+        height: 40px;
+        padding-top: 11.5px;
+        padding-bottom: 13px;
+	font-size: 12px;
+	background: var(--background-gray-color);
+	color: gray;
+	border: solid 1.5px var(--ssss);
+         border-top-color: var(--border_black-color);
+        border-left-width: 0px;
+         border-radius: 0px 0px 10px 0px / 0px 0px 10px 0px;
+          cursor: pointer;
+}
+
+
+
+.signUP_main{
+         width:360px;
+ 	display:flex;
+	flex-direction:column;
+	align-items:center;
+        background:var(--background-gray-color);
+        border-radius: 10px 10px 10px 10px / 10px 10px 10px 10px;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-60%);
+}
+.signUp_section{
+         width:357px;
+ 	display:flex;
+	flex-direction:column;
+	align-items:center;
+        background:var(--white-color);
+        border: 1.5px solid var(--border_black-color);
+        border-bottom-width: 0px;
+       border-radius: 10px 10px 10px 0px / 10px 10px 10px 0px;
+}
