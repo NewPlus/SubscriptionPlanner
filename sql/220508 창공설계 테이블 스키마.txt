@@ -1,0 +1,17 @@
+----------------<db 생성>-------------------------
+CREATE DATABASE ottdb;
+
+----------------<db 선택>-------------------------
+USE ottdb;
+
+----------------<테이블 생성>-------------------------
+create table members_t(
+	intNumber int NOT NULL AUTO_INCREMENT,
+	strName varchar(20) DEFAULT NULL,
+	strId varchar(50) DEFAULT NULL,
+	strPw varchar(500) DEFAULT NULL,
+	PRIMARY KEY(intNumber)
+);
+
+----------------<테이블 전체 보기>------------------------- 
+select * from members_t;
