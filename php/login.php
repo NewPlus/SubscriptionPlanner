@@ -35,36 +35,34 @@
                }
           }
      ?>
-     <div class="login_main">
+     <div class="signIn_main">
           <section class="input_section">
                <div class="logo_art">
                     <img src="title.png">
                </div>
                <form action="login.php" method="POST">
-               <div class="ID">
+               <div class="signIn_id">
                   <input type = "text" name = "u_id" placeholder="ID" onfocus="this.placeholder=''" onblur="this.placeholder='ID'" ><br>
                </div>
-               <div class="PW">
+               <div class="signIn_pw">
                   <input type = "password" name = "u_pw" placeholder="Password" onfocus="this.placeholder=''" onblur="this.placeholder='Password'"><br>
                </div>
-               <div class="checkbox_remember_me">
-                  <label>
-                       <input type="checkbox" value="remember me"> Remember me
-                  </label>
+               <div class="rememberMe_checkbox">
+                    <?php
+                         if($empty_u == 1){
+                              echo "<p>사용자 ID가 존재하지 않습니다.</p>";
+                         }
+                         if($wrong_pw == 1){
+                              echo "<p>비밀번호가 틀렸습니다.</p>";
+                         }
+                    ?>
                </div>
-               <button class="login_button" type="summit">로그인</button>
-               <?php
-                    if($empty_u == 1){
-                         echo "<p>사용자 ID가 존재하지 않습니다.</p>";
-                    }
-                    if($wrong_pw == 1){
-                         echo "<p>비밀번호가 틀렸습니다.</p>";
-                    }
-               ?>
+               <button class="signIn_button" type="summit">로그인</button>
                </form>
           </section> 
           <section class="other_buttons">
-             <button class="sign_up" onclick="location.href='register.php' ">Sign up</button>
+             <button class="OB_signIn0">Sign In</button>
+             <button class="OB_signUp1" onclick="location.href='register.php' ">Sign up</button>
           </div>
      </div>
 </body>
