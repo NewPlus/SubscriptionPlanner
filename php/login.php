@@ -12,7 +12,7 @@
                $host = '';
                $dbuser = '';
                $dbpw = '';
-               $dbname = 'ottdb';
+               $dbname = '';
 
                $conn = new mysqli($host, $dbuser, $dbpw, $dbname);
                $querys = "select * from members_t where strId = '".$u_id."';";
@@ -20,6 +20,7 @@
                $query_result = mysqli_query($conn, $querys);
                while($row = mysqli_fetch_array($query_result)){
                     $q_pw = $row['strPw'];
+                    $u_name = $row['strName'];
                }
 
                if(is_null($q_pw)){
@@ -27,6 +28,9 @@
                }
                else{
                     if(password_verify($u_pw, $q_pw)){
+                         session_start();
+                         $_SESSION['id'] = $u_id;
+                         $_SESSION['name'] = $u_name;
                          header('Location: login_check.php');
                     }
                     else{
