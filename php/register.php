@@ -8,7 +8,7 @@
     $host = '';
     $dbuser = '';
     $dbpw = '';
-    $dbname = 'ottdb';
+    $dbname = '';
 
     if (!is_null($u_id)) {
         $conn = new mysqli($host, $dbuser, $dbpw, $dbname);
