@@ -16,7 +16,7 @@ create table members_t(
 ----------------<회원정보 테이블 전체 보기>------------------------- 
 select * from members_t;
 
-----------------<구독리스트 테이블 생성>-------------------------
+----------------<구독리스트 테이블 생성>---------------------------
 create table ottList_t(
 	intNumber INT NOT NULL AUTO_INCREMENT,
 	strId VARCHAR(500),
