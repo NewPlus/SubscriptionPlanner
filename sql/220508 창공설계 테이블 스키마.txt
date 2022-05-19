@@ -4,7 +4,7 @@ CREATE DATABASE ottdb;
 ----------------<db 선택>-------------------------
 USE ottdb;
 
-----------------<테이블 생성>-------------------------
+----------------<회원정보 테이블 생성>-------------------------
 create table members_t(
 	intNumber int NOT NULL AUTO_INCREMENT,
 	strName varchar(20) DEFAULT NULL,
@@ -13,5 +13,19 @@ create table members_t(
 	PRIMARY KEY(intNumber)
 );
 
-----------------<테이블 전체 보기>------------------------- 
+----------------<회원정보 테이블 전체 보기>------------------------- 
 select * from members_t;
+
+----------------<구독리스트 테이블 생성>-------------------------
+create table ottList_t(
+	intNumber INT NOT NULL AUTO_INCREMENT,
+	strId VARCHAR(500),
+	strOttName VARCHAR(500),
+	intOttPay INT,
+	intOttDate INT,
+	strOttImg VARCHAR(500),
+	PRIMARY KEY(intNumber)
+);
+
+----------------<회원정보 테이블 전체 보기>------------------------- 
+select * from ottList_t;
