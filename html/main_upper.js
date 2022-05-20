@@ -1,7 +1,7 @@
 const swiper = new Swiper('.swiper', {
     
-    pagination: {
-      el: '.swiper-pagination',
+    pagination: {  
+    el: '.swiper-pagination',
     },
  
     navigation: {
