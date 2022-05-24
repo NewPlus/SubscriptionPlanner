@@ -42,3 +42,12 @@ insert into ottList_t(strId, strOttName, intOttPay, intOttDate, strOttImg, strSr
 insert into ottList_t(strId, strOttName, intOttPay, intOttDate, strOttImg, strSrc) value ('ddd', 'Netflix', 8900, 25, 'img/netflix.jpg', 'https://www.netflix.com/kr/');
 insert into ottList_t(strId, strOttName, intOttPay, intOttDate, strOttImg, strSrc) value ('eee', 'Netflix', 8900, 3, 'img/netflix.jpg', 'https://www.netflix.com/kr/');
 insert into ottList_t(strId, strOttName, intOttPay, intOttDate, strOttImg, strSrc) value ('fff', 'Youtube Premium', 8000, 24, 'img/youtube_pre.jpg', 'https://www.youtube.com/premium');
+
+----------------<추천 알고리즘 구현용 검색문>-------------------------
+select strOttName from ottList_t group by strOttName having count(*) = 
+(select max(OttCount) from (select strOttName, count(*) as OttCount
+from ottList_t group by strOttName) as result);
+select count(*) from ottList_t where strOttName='Netflix';
+select intNumber from ottList_t order by intNumber desc limit 1;
+select strOttName from ottList_t where strId='lyhthy6';
+select strSrc from ottList_t where strOttName = 'Netflix' limit 1;
