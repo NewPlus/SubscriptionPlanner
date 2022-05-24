@@ -24,8 +24,21 @@ create table ottList_t(
 	intOttPay INT,
 	intOttDate INT,
 	strOttImg VARCHAR(500),
+	strSrc VARCHAR(5000),
 	PRIMARY KEY(intNumber)
 );
 
-----------------<회원정보 테이블 전체 보기>------------------------- 
+----------------<구독리스트 테이블 전체 보기>------------------------- 
 select * from ottList_t;
+
+----------------<구독리스트 테이블 데이터 임의 삽입>------------------------- 
+insert into ottList_t(strId, strOttName, intOttPay, intOttDate, strOttImg, strSrc) value ('lyhthy6', 'Netflix', 8900, 25, 'img/netflix.jpg', 'https://www.netflix.com/kr/');
+insert into ottList_t(strId, strOttName, intOttPay, intOttDate, strOttImg, strSrc) value ('lyhthy6', 'Disney Plus', 7000, 26, 'img/disney_plus.jpg', 'https://www.disneyplus.com/ko-kr/welcome/stream-now');
+insert into ottList_t(strId, strOttName, intOttPay, intOttDate, strOttImg, strSrc) value ('aaa', 'Watcha', 5000, 15, 'img/watcha.png', 'https://watcha.com/');
+insert into ottList_t(strId, strOttName, intOttPay, intOttDate, strOttImg, strSrc) value ('lyhthy6', 'Youtube Premium', 8000, 2, 'img/youtube_pre.jpg', 'https://www.youtube.com/premium');
+insert into ottList_t(strId, strOttName, intOttPay, intOttDate, strOttImg, strSrc) value ('aaa', 'Netflix', 8900, 24, 'img/netflix.jpg', 'https://www.netflix.com/kr/');
+insert into ottList_t(strId, strOttName, intOttPay, intOttDate, strOttImg, strSrc) value ('bbb', 'Netflix', 8900, 3, 'img/netflix.jpg', 'https://www.netflix.com/kr/');
+insert into ottList_t(strId, strOttName, intOttPay, intOttDate, strOttImg, strSrc) value ('ccc', 'Netflix', 8900, 25, 'img/netflix.jpg', 'https://www.netflix.com/kr/');
+insert into ottList_t(strId, strOttName, intOttPay, intOttDate, strOttImg, strSrc) value ('ddd', 'Netflix', 8900, 25, 'img/netflix.jpg', 'https://www.netflix.com/kr/');
+insert into ottList_t(strId, strOttName, intOttPay, intOttDate, strOttImg, strSrc) value ('eee', 'Netflix', 8900, 3, 'img/netflix.jpg', 'https://www.netflix.com/kr/');
+insert into ottList_t(strId, strOttName, intOttPay, intOttDate, strOttImg, strSrc) value ('fff', 'Youtube Premium', 8000, 24, 'img/youtube_pre.jpg', 'https://www.youtube.com/premium');
