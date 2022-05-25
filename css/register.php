@@ -37,29 +37,28 @@
 <head>
     <title>SubscriptionPlanner Sign Up</title>
     <link rel="stylesheet" href="style.css">  
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap"> 
 </head>
 <body>
-    <body background="배경.jpg">
     <div class="signUp_main">
-        <div class="signUp_title">
-                <p>회원가입</p>
-        </div>
-        <form action="register.php" method="POST">
-            <div class="signUp_name">
-                <input type="text" name="u_name" placeholder="사용자 이름" onfocus="this.placeholder=''" onblur="this.placeholder='사용자 이름'"  required>
+        <section class="signUp_section">
+            <div class="signUpTitle">
+                <label>회 원 가 입</label>
             </div>
-            <div class="signUp_id">
-                <input type="text" name="u_id" placeholder="사용자 ID" onfocus="this.placeholder=''" onblur="this.placeholder='사용자 ID'" required>
-            </div>
-            <div class="signUp_pw">
-                <input type="password" name="u_pw" placeholder="비밀번호 "onfocus="this.placeholder=''" onblur="this.placeholder='비밀번호'" required>
-            </div>
-            <div class="signUp_pw_check">
-                <input type="password" name="u_pw_check" placeholder="비밀번호 확인" onfocus="this.placeholder=''" onblur="this.placeholder='비밀번호 확인'" required>
-            </div>
-            <div class="signUp_checkIdpw">
+            <form action="register.php" method="POST">
+                <div class="signUp_name">
+                    <input type="text" name="u_name" placeholder="사용자 이름" onfocus="this.placeholder=''" onblur="this.placeholder='사용자 이름'"  required>
+                </div>
+                <div class="signUp_id">
+                    <input type="text" name="u_id" placeholder="사용자 ID" onfocus="this.placeholder=''" onblur="this.placeholder='사용자 ID'" required>
+                </div>
+                <div class="signUp_pw">
+                    <input type="password" name="u_pw" placeholder="비밀번호 "onfocus="this.placeholder=''" onblur="this.placeholder='비밀번호'" required>
+                </div>
+                <div class="signUp_pw_check">
+                    <input type="password" name="u_pw_check" placeholder="비밀번호 확인" onfocus="this.placeholder=''" onblur="this.placeholder='비밀번호 확인'" required>
+                </div>
+  
+                <button class="signUp_button" type="summit">진행</button>
                 <?php
                     if ( $double_id == 1 ) {
                         echo "<p>사용자 ID가 중복되었습니다.</p>";
@@ -68,10 +67,12 @@
                         echo "<p>비밀번호가 일치하지 않습니다.</p>";
                     }
                 ?>
-            </div>
-            <button class="signUp_button" type="summit">Sign Up</button>
-        </form>
-        <button class="OB_signIn" onclick="location.href='login.php' ">Sign In</button>
+            </form>
+        </section>
+        <section class="otherButtons_section">
+            <button class="OB_signIn1" onclick="location.href='login.php' ">Sign In</button>
+            <button class="OB_signUp0">Sign Up</button>
+        </section>
     </div>
 </body>
 </html>
