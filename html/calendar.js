@@ -105,10 +105,27 @@ var date = new Date();
 			  
 		}
 		
-		var tdId = "22"; 
+		var strmonth = 5
+		var strdate = "01"; 
+		var str = "";
+
+		if(today.getMonth()==strmonth -1){    //매년 구독
+			
+		str += "넷플릭스  ";
+		str += "<br>왓차 ";
+		document.getElementById(strdate).innerHTML = str;
+		}
+
+
+		//매달 구독 
+		{
+		strdate = "05"; 
 		var str = "";
 		str += "넷플릭스  ";
-		str += "왓차 ";
-		document.getElementById(tdId).innerHTML = str;
+		str += "<br>왓차 ";
+		document.getElementById(strdate).innerHTML = str;
+		}	
+
+
 	}
 
