@@ -1,0 +1,274 @@
+:root
+      {
+	--body-background-color: #f5f6f7;
+         --white-color: #ffffff;
+	--font-color: #4e4e4e;
+	--border-gray-color : #dadada;
+	--black-color: #333333;
+	--border_black-color: #808080;
+         --background-gray-color: #e1e1e1;
+         --ssss: #c8c8c8;
+      }
+
+     *{
+	margin:0;
+	padding:0;
+       }
+
+body{
+	background:var(--body-background-color);
+}
+
+.signUp_main{
+        width: 360px;
+ 	display:flex;
+	flex-direction:column;
+	align-items:center;
+        background:var(--background-gray-color);
+        border-radius: 10px 10px 10px 10px / 10px 10px 10px 10px;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-60%);
+}
+.signUp_section{
+         width:357px;
+         height:416px;
+ 	display:flex;
+	flex-direction:column;
+	align-items:center;
+        background:var(--white-color);
+        border: 1.5px solid var(--border_black-color);
+        border-bottom-width: 0px;
+       border-radius: 10px 10px 0px 10px / 10px 10px 0px 10px;
+}
+.signUpTitle{
+       margin-top: 25px;
+       	font-size: 36px;
+       color: rgba(96,96,0,1);
+}
+.signUpId{
+         margin-top: 25px;
+	width: 300px;
+	height :40px;
+	border: solid 1px var(--border-gray-color );
+         border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
+	background: white;
+}
+.signUpPw{
+         margin-top: 20px;
+	width: 300px;
+	height :40px;
+	border: solid 1px var(--border-gray-color );
+         border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
+	background: white;
+}
+.signUpPwCheck{
+         margin-top: 10px;
+	width: 300px;
+	height :40px;
+	border: solid 1px var(--border-gray-color );
+         border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
+	background: white;
+}
+.name{
+         margin-top: 20px;
+	width: 225px;
+	height: 40px;
+	border: solid 1px var(--border-gray-color );
+         border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
+	background: white;
+
+        margin-left: -75px;
+}
+.gender{
+        width: 60px;
+}
+
+.nickname{
+         margin-top: 20px;
+	width: 300px;
+	height: 40px;
+	border: solid 1px var(--border-gray-color );
+         border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
+	background: white;
+}
+.year{
+         margin-top: 20px;
+	width: 150px;
+	height: 40px;
+	border: solid 1px var(--border-gray-color );
+         border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
+	background: white;
+
+        float: left;
+}
+.month{
+      width 75px;
+      height: 40px;
+
+	border: solid 1px var(--border-gray-color );
+         border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
+	background: white;
+font-size: 16px;
+        float: left;
+}
+.signUpId input{
+	border: none;
+	width: 280px;
+	margin-top: 7px;
+         margin-bottom: 5px;
+	font-size: 16px;
+	margin-left: 10px;
+	height:30px;
+}
+.phoneNumber{
+         margin-top: 10px;
+	width: 300px;
+	height :40px;
+	border: solid 1px var(--border-gray-color );
+         border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
+	background: white;
+}
+.email{
+         margin-top: 10px;
+	width: 300px;
+	height :40px;
+	border: solid 1px var(--border-gray-color );
+         border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
+	background: white;
+}
+.signUpPw input{
+	border: none;
+	width: 280px;
+	margin-top: 7px;
+         margin-bottom: 5px;
+	font-size: 16px;
+	margin-left: 10px;
+	height:30px;
+}
+.signUpPwCheck input{
+	border: none;
+	width: 280px;
+	margin-top: 7px;
+         margin-bottom: 5px;
+	font-size: 16px;
+	margin-left: 10px;
+	height:30px;
+}
+.name input{
+	border: none;
+	width: 205px;
+	margin-top: 7px;
+         margin-bottom: 5px;
+	font-size: 16px;
+	margin-left: 10px;
+	height:30px;
+}
+.nickname input{
+	border: none;
+	width: 280px;
+	margin-top: 7px;
+         margin-bottom: 5px;
+	font-size: 16px;
+	margin-left: 10px;
+	height:30px;
+}
+.year input{
+	border: none;
+	width: 130px;
+	margin-top: 7px;
+         margin-bottom: 5px;
+	font-size: 16px;
+	margin-left: 10px;
+	height:30px;
+}
+.phoneNumber input{
+	border: none;
+	width: 280px;
+	margin-top: 7px;
+         margin-bottom: 5px;
+	font-size: 16px;
+	margin-left: 10px;
+	height:30px;
+}
+.email input{
+	border: none;
+	width: 280px;
+	margin-top: 7px;
+         margin-bottom: 5px;
+	font-size: 16px;
+	margin-left: 10px;
+	height:30px;
+}
+input:focus {outline:none;}
+.signUpButton {
+    background: rgba(96,96,0,0.5);
+    color: white;
+    border: 1px solid #e8e8e8;
+    
+    width: 120px;
+    margin-top: 35px;
+    font-size: 18px;
+    height:48px;
+    
+    padding-top: 5px;
+    padding-bottom: 5px;
+    letter-spacing: 0px;
+
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
+
+    margin-bottom: 15px;
+}
+.signUpButton:hover{
+    background-color: #f8f8f8;
+    color: #888;
+    transition: all 0.1s;
+}
+.sign_in3{
+        width: 120px;
+        height: 40px;
+        padding-top: 11.5px;
+        padding-bottom: 13px;
+	font-size: 12px;
+	background: var(--background-gray-color);
+	color: gray;
+	border: solid 1.5px var(--ssss);
+         border-top-color: var(--border_black-color);
+         border-radius: 0px 0px 0px 10px / 0px 0px 0px 10px;
+          cursor: pointer;
+         float: left;
+}
+.forgot_IDPW{
+        width: 120px;
+        height: 40px;
+        padding-top: 11.5px;
+        padding-bottom: 13px;
+	font-size: 12px;
+	background: var(--background-gray-color);
+	color: gray;
+	border: solid 1.5px var(--ssss);
+         border-top-color: var(--border_black-color);
+        border-left-width: 0px;
+        border-right-width: 0px;
+         border-radius: 0px 0px 0px 0px / 0px 0px 0px 0px;
+        cursor: pointer;
+         float: left;
+}
+.sign_up3{
+        width: 120px;
+        height: 40px;
+        padding-top: 11.5px;
+        padding-bottom: 13px;
+	font-size: 12px;
+
+	background: var(--white-color);
+	color: black;
+	border: solid 1.5px var(--border_black-color);
+         border-top-width: 0px;
+         border-radius: 0px 0px 10px 10px / 0px 0px 10px 10px;
+          cursor: pointer;
+}

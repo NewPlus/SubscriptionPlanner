@@ -33,7 +33,7 @@
             mysqli_query($conn, $query_add_user);
             $_SESSION['id'] = $u_id;
             $_SESSION['name'] = $u_name;
-            header('Location: login_check.php');
+            header('Location: main_upper.php');
         }
         else{
             $wrong_pw = 1;
@@ -77,7 +77,7 @@
             </form>
         </section>
         <section class="otherButtons_section">
-            <button class="OB_signIn1" onclick="location.href='login_check.php' ">Main</button>
+            <button class="OB_signIn1" onclick="location.href='main_upper.php' ">Main</button>
             <button class="OB_signUp0"><?php echo $q_id; ?>정보수정</button>
         </section>
     </div>
