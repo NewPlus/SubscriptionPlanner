@@ -99,6 +99,7 @@ var date = new Date();
 		var strmonth = 5
 		var strdate = "01"; 
 		var str = "";
+<<<<<<< HEAD
 
 		if(today.getMonth()==strmonth -1){    //매년 구독
 			
@@ -120,6 +121,8 @@ var date = new Date();
 
 
 =======
+=======
+>>>>>>> 3524c71daf05ddf9ad459996cf9dd4f64016e26c
 		str += "���ø���  ";
 		str += "���� ";
 		document.getElementById(tdId).innerHTML = str;
