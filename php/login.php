@@ -31,7 +31,7 @@
                          session_start();
                          $_SESSION['id'] = $u_id;
                          $_SESSION['name'] = $u_name;
-                         header('Location: login_check.php');
+                         header('Location: main_upper.php');
                     }
                     else{
                          $wrong_pw = 1;
@@ -42,7 +42,7 @@
      <div class="signIn_main">
           <section class="input_section">
                <div class="logo_art">
-                    <img src="title.png">
+                    <img src="img/title.png">
                </div>
                <form action="login.php" method="POST">
                <div class="signIn_id">

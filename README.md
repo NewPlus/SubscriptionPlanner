@@ -17,10 +17,17 @@
 - 로그인, 회원가입, 회원정보 세션 연결 완료(2022.05.17) <PHP, MySQL> : 이용환
 - 회원정보 php로 DB 연동 완료(2022.05.17) <PHP, MySQL> : 이용환
 - DB 구독리스트Table 스키마 설계 및 생성 완료(2022.05.19) <MySQL.> : 이용환
--메인화면 달력 완료(2022.05.24) <HTML,JS> : 이재연
+- 메인화면 달력 완료(2022.05.24) <HTML,JS> : 이재연
+- 메인 윗부분 php로 DB 연동 완료(2022.05.24) <PHP, MySQL> : 이용환
+- 메인 캘린더 php로 병합 완료(2022.05.24) <PHP.> : 이용환
+- 메인 아랫부분 php로 병합 완료(2022.05.24) <PHP, MySQL> : 이용환
+- 추천 알고리즘 php로 구현 완료(2022.05.24) <PHP, MySQL> : 이용환
+- 로그인 및 회원가입 디자인 수정(2022.05.25) <HTML, CSS> : 나현우
+- 달력 디자인 적용(2022.05.26) <HTML, CSS, JS> : 나현우
 
 # Source(출처)
 - 로그인, 회원가입 화면(잘못된 입력 시, 같은 화면에서 오류 메시지를 띄우는 동작을 많이 참고하였습니다.) <이용환> : https://www.codingfactory.net/12195
 - 세션 연결(세션을 연결하고 로그아웃 시, 세션을 푸는 함수나 원리를 참고하였습니다.) <이용환> : https://velog.io/@910/PHP-MySQL-%EB%A1%9C%EA%B7%B8%EC%9D%B8-%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%A7%8C%EB%93%A4%EA%B8%B0
 - 메인화면(구독한 ott사진에 swiper기능 참고하였습니다.) <윤도연> : https://www.biew.co.kr/entry/%EB%B0%98%EC%9D%91%ED%98%95-%EC%8A%AC%EB%9D%BC%EC%9D%B4%EB%8D%94-Swiper
--메인화면(달력 날짜에 맞게 이동하는 기능을 참고하였습니다.) <이재연> : https://8millimeters.tistory.com/12
+- 메인화면(달력 날짜에 맞게 이동하는 기능을 참고하였습니다.) <이재연> : https://8millimeters.tistory.com/12
+- CSS (뉴모피즘 적용 예시 참고하였습니다.) <나현우> : https://ldrerin.tistory.com/467?category=772248

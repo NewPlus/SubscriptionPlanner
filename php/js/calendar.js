@@ -1,19 +1,19 @@
 var today = new Date();         
 var date = new Date();
 	
-	//������
+	//이전달
 	function beforeMonth() { 
 		today = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate());
 		showCalendar(); 
 	}
 	
-	//������
+	//다음달
 	function nextMonth() {
 		today = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
 		showCalendar();
 	}
 	
-	//���ü���
+	//오늘선택
 	function thisMonth(){
 		today = new Date();
 		showCalendar();
@@ -25,7 +25,20 @@ var date = new Date();
 		var lastDate = new Date(today.getFullYear(), today.getMonth() + 1, 0); 
 		var tbcal = document.getElementById("calendar"); 
 		var yearmonth = document.getElementById("yearmonth"); 
-		yearmonth.innerHTML = today.getFullYear() + "�� "+ (today.getMonth() + 1) + "��"; 
+		yearmonth.innerHTML = today.getFullYear() + "년 "+ (today.getMonth() + 1) + "월"; 
+
+		if(today.getMonth()+1==12) {
+			before.innerHTML="<";
+			next.innerHTML=">";
+		}
+		else if(today.getMonth()+1==1) {
+			before.innerHTML="<";
+			next.innerHTML=">";
+		}
+		else {
+			before.innerHTML="<";
+			next.innerHTML=">";
+		}
 
 
 		while (tbcal.rows.length > 2) {
@@ -41,14 +54,13 @@ var date = new Date();
         }else{
             var dayCheck = nMonth.getDay();
         }
-		
-		for (i = 0; i < nMonth.getDay(); i++) {
+		for (i = 0; i < (dayCheck-1); i++) {
 			cnt = cnt + 1;	
 			cell = row.insertCell();
 		}
 
 
-		// �޷� ���
+		// 달력 출력
 		for (i = 1; i <= lastDate.getDate(); i++)
 		{ 
 			cell = row.insertCell();
@@ -65,20 +77,7 @@ var date = new Date();
 			cell.innerHTML = str;
 			
 			cnt = cnt + 1;
-
-			if (cnt % 7 == 0) { //�����
-				var str="";
-				str += "<div>"+i+"</div>";
-                if(i<10){
-                    var day = "0"+i; 
-                }else{
-                    var day = i;
-                }                	
-				str += "<div id='"+day+"'>"+"</div>";
-				cell.innerHTML = "<font color = #3737FF>" + str;
-				row = calendar.insertRow();
-			}
-			if (cnt % 7 == 1) { //�Ͽ���
+			if (cnt % 7 == 6) { //토요일
 				var str="";
 				str += "<div>"+i+"</div>";
                 if(i<10){
@@ -87,42 +86,29 @@ var date = new Date();
                     var day = i;
                 }       	
 				str += "<div id='"+day+"'>"+"</div>";
-				cell.innerHTML = "<font color = #FF3737>" + str;                
+				cell.innerHTML = str;                
+			}
+			if (cnt % 7 == 0) { //일요일
+				var str="";
+				str += "<div>"+i+"</div>";
+                if(i<10){
+                    var day = "0"+i; 
+                }else{
+                    var day = i;
+                }                	
+				str += "<div id='"+day+"'>"+"</div>";
+				cell.innerHTML = str;
+				row = calendar.insertRow();
 			}
 			
-			if(today.getFullYear()==date.getFullYear()&&today.getMonth()==date.getMonth()&&i==date.getDate()) 
-            {
-				cell.innerHTML = "<font color = #AFAF7F>" + "<font size = 5px>" + str;
-            }
+			
+			  
 		}
 		
-		var strmonth = 5
-		var strdate = "01"; 
+		var tdId = "22"; 
 		var str = "";
-
-		if(today.getMonth()==strmonth -1){    //매년 구독
-			
 		str += "넷플릭스  ";
-		str += "<br>왓차 ";
-		document.getElementById(strdate).innerHTML = str;
-		}
-
-
-		//매달 구독 
-		{
-		strdate = "05"; 
-		var str = "";
-<<<<<<< HEAD
-		str += "넷플릭스  ";
-		str += "<br>왓차 ";
-		document.getElementById(strdate).innerHTML = str;
-		}	
-
-
-=======
-		str += "���ø���  ";
-		str += "���� ";
+		str += "왓차 ";
 		document.getElementById(tdId).innerHTML = str;
->>>>>>> 3524c71daf05ddf9ad459996cf9dd4f64016e26c
 	}
 
