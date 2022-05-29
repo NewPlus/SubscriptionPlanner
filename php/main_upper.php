@@ -1,16 +1,16 @@
 <?php
-$host = '';
-$dbuser = '';
-$dbpw = '';
-$dbname = '';
+    $host = '';
+    $dbuser = '';
+    $dbpw = '';
+    $dbname = '';
 
-$conn = new mysqli($host, $dbuser, $dbpw, $dbname);
+    $conn = new mysqli($host, $dbuser, $dbpw, $dbname);
 ?>
 <!DOCTYPE html>
 
 
   <!-- Session & UserId & Logout -->
-<html>
+  <html>
     <head>
         <link rel="stylesheet" href="style.css">
     </head>
@@ -60,15 +60,19 @@ $conn = new mysqli($host, $dbuser, $dbpw, $dbname);
 <div class="swiper">
 <div class="swiper-wrapper">
     <?php
-        $q_img = "select strOttImg from ottList_t where strId = '".$u_id."';";
+        $q_img = "select strOttImg, strOttName from ottList_t where strId = '".$u_id."';";
         $r_img = mysqli_query($conn, $q_img);
         while($row = mysqli_fetch_array($r_img)){
+            $ottNames = $row['strOttName'];
     ?>
+    <script>
+        function showPopup(ottNames) { window.open("seemore.php?id=<?php echo $_SESSION['id']?>&ottname="+ottNames, "더보기", "width=400, height=300, left=100, top=50"); }
+    </script>
                 <div class="swiper-slide">
                     <a href = "#">
                         <div class = "text-wrap">
                         </div>
-                        <img src="<?php echo $row['strOttImg'] ?>" height="300" width="300">
+                        <img src="<?php echo $row['strOttImg'] ?>" onclick = "showPopup('<?php echo $ottNames ?>');" height="300" width="300">
                     </a>
                 </div>
     <?php
@@ -90,33 +94,38 @@ $conn = new mysqli($host, $dbuser, $dbpw, $dbname);
 
   <!-- Calendar -->
 <html>
-    <script src="js/calendar.js"></script>
-    <body onload="showCalendar();">
-        <div>
-            <table align="center" id="calendar" border=1>
-                <tr>
-                    <td>
-                        <a id="before" href="javascript:beforeMonth()"></a>
-                    </td>
-                    <td colspan="4" align="center">
-                        <div id="yearmonth"></div>
-                    </td>
-                    <td>
-                        <a id="next" href="javascript:nextMonth()"></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td width="14%"> 월 </td>
-                    <td width="14%"> 화 </td>
-                    <td width="14%"> 수 </td>
-                    <td width="14%"> 목 </td>
-                    <td width="14%"> 금 </td>
-                    <td width="14%"> 토 </td>
-                    <td width="14%"> 일 </td>
-                </tr>
-            </table>
-        </div>
-    </body>
+<script src = "js/calendar.js"></script>
+<link rel="stylesheet" href="calendar_style.css">
+<body onload="showCalendar();">
+
+	<table align="center" id="calendar">
+<thead>
+		<tr>
+			<th colspan="1"> </th>
+			<th>
+                          <button id="before" onclick="location.href='javascript:beforeMonth()' ">◀</button>
+			</th>
+			<th colspan="3" align="center">
+			<div id="yearmonth"></div>
+			</th>
+			<th>
+                          <button id="next" onclick="location.href='javascript:nextMonth()' ">▶</button>
+			</th>
+			<th colspan="1"> </th>
+		</tr>
+</thead>
+		<tr>
+			<th class="sun" align="center" width="14.3%"> 일 </th>
+			<th align="center" width="14.3%"> 월 </th>
+			<th align="center" width="14.3%"> 화 </th>
+			<th align="center" width="14.2%"> 수 </th>
+			<th align="center" width="14.3%"> 목 </th>
+			<th align="center" width="14.3%"> 금 </th>
+			<th class="satur" align="center" width="14.3%"> 토 </th>
+		</tr>
+
+	</table>
+</body>
     <!-- Calendar end -->
     
     <!-- main_under -->
@@ -170,6 +179,7 @@ $conn = new mysqli($host, $dbuser, $dbpw, $dbname);
     </div>
 
     <div>
+    
     <h4>YouTube Premium / 월 8,900원/ 매월 15일 / 오늘 납부</h4>
     <h4>Netflix / 월 9,500원 / 매월 15일 / 오늘 납부</h4>
     <h4>Diseny+ / 9,900원 / 매월 17일 / 2일 후 납부</h4>
