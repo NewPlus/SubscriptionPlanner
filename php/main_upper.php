@@ -7,7 +7,7 @@
     $conn = new mysqli($host, $dbuser, $dbpw, $dbname);
 ?>
 <!DOCTYPE html>
-
+ 
 
 <!-- Session & UserId & Logout -->
 <html>
