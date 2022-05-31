@@ -99,19 +99,19 @@
 var today = new Date();         
 var date = new Date();
   
-  //������
+  //이전 달
   function beforeMonth() { 
       today = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate());
       showCalendar(); 
   }
   
-  //������
+  //다음 달
   function nextMonth() {
       today = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
       showCalendar();
   }
   
-  //���ü���
+  //이번 달
   function thisMonth(){
       today = new Date();
       showCalendar();
@@ -146,7 +146,7 @@ var date = new Date();
       }
 
 
-      // �޷� ���
+      // 달력 생성
       for (i = 1; i <= lastDate.getDate(); i++)
       { 
           cell = row.insertCell();
@@ -164,7 +164,7 @@ var date = new Date();
           
           cnt = cnt + 1;
 
-          if (cnt % 7 == 0) { //�����
+          if (cnt % 7 == 0) { //주말
               var str="";
               str += "<div>"+i+"</div>";
               if(i<10){
@@ -176,7 +176,7 @@ var date = new Date();
               cell.innerHTML = "<font color = #3737FF>" + str;
               row = calendar.insertRow();
           }
-          if (cnt % 7 == 1) { //�Ͽ���
+          if (cnt % 7 == 1) { //주말
               var str="";
               str += "<div>"+i+"</div>";
               if(i<10){
