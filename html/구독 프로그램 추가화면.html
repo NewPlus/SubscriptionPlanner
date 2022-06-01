@@ -5,6 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>구독 프로그램 추가화면</title> 
+    <script>
+        function categoryChange(e) {
+            var day_a = ["1", "2", "3", "4","5","6","7","8","9","10","11","12","13","14","15","16"
+        ,"17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"]; //31일
+            var day_b = ["1", "2", "3", "4","5","6","7","8","9","10","11","12","13","14","15","16"
+        ,"17","18","19","20","21","22","23","24","25","26","27","28","29"]; //29일
+            var day_c = ["1", "2", "3", "4","5","6","7","8","9","10","11","12","13","14","15","16"
+        ,"17","18","19","20","21","22","23","24","25","26","27","28","29","30"]; //30일
+            var target = document.getElementById("day");
+            if(e.value == "2") var d = day_b;  //2월
+            else if(e.value == "4"||e.value == "6"||e.value == "9"||e.value == "11") var d = day_c;  //4,6,9.11월
+            else var d = day_a;  //나머지 
+            target.options.length = 0;
+            for (x in d) {
+                var opt = document.createElement("option");
+                opt.value = d[x];
+                opt.innerHTML = d[x];
+                target.appendChild(opt);
+            } 
+        }
+
+    </script>
 </head>
 <body>
     <div align="center">
@@ -43,21 +65,21 @@
             <input type="text" placeholder="금액입력" />
             <div>
                 <label> 결제일 </label>
-                    <select>
-                        <option>1</option>       
-                        <option>2</option> 
-                        <option>3</option> 
-                        <option>4</option> 
-                        <option>5</option> 
-                        <option>6</option> 
-                        <option>7</option> 
-                        <option>8</option> 
-                        <option>9</option> 
-                        <option>10</option> 
-                        <option>11</option> 
-                        <option>12</option> 
+                    <select onchange ="categoryChange(this)">
+                        <option value="1">1</option>       
+                        <option value="2">2</option> 
+                        <option value="3">3</option> 
+                        <option value="4">4</option> 
+                        <option value="5">5</option> 
+                        <option value="6">6</option> 
+                        <option value="7">7</option> 
+                        <option value="8">8</option> 
+                        <option value="9">9</option> 
+                        <option value="10">10</option> 
+                        <option value="11">11</option> 
+                        <option value="12">12</option> 
                     </select>
-                    <select>
+                    <select id ="day">
                         <option>1</option>       
                         <option>2</option> 
                         <option>3</option> 
