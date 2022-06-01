@@ -206,23 +206,32 @@ var date = new Date();
             while($row = mysqli_fetch_array($r_img)){
                 $ottDate = $row['intOttDate'];
                 $ottNames = $row['strOttName'];
+
                 if($ottDate < 100){
             ?>
-            var tdId = today.getMonth() + 
-                "<?php
-                    if($ottDate < 10){
-                        echo "0{$ottDate}";
-                    }
-                    else{
-                        echo $ottDate;
-                    }
-                ?>"; 
+            var tdId = today.getMonth();
+                if(<?php echo $ottDate ?> > 30 && (today.getMonth() == 3 || today.getMonth() == 5 || today.getMonth() == 8 || today.getMonth() == 10)){
+                    tdId = tdId + "30";
+                }
+                else if(<?php echo $ottDate ?> > 28 && today.getMonth() == 1){
+                    tdId = tdId + "28";
+                }
+                else{
+                    tdId = tdId + "<?php
+                        if($ottDate < 10){
+                            echo "0{$ottDate}";
+                        }
+                        else{
+                            echo $ottDate;
+                        }
+                    ?>";
+                }
             var str = "<?php echo $ottNames ?>";
             <?php
                 }
                 else{
                 ?>
-                    var tdId = "<?php echo $ottDate ?>"; 
+                    var tdId = "<?php echo $ottDate ?>";
                     var str = "<?php echo $ottNames ?>";
                 <?php
                 }
