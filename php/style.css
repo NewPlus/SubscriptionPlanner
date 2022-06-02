@@ -31,16 +31,18 @@ body{
         top: 50%;
         left: 50%;
         transform: translate(-50%,-60%);
+
+  box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
+  -9px -9px 16px rgba(255, 255, 255, 0.6);
 }
 .input_section{
-         width:357px;
+         width:360px;
          height:416px;
  	display:flex;
 	flex-direction:column;
 	align-items:center;
         background:var(--white-color);
-        border: 1.5px solid var(--border_black-color);
-      border-bottom-style: hidden;
+        border: none;
        border-radius: 10px 10px 10px 0px / 10px 10px 10px 0px;
 }
 .input_section .logo_art{
@@ -90,24 +92,23 @@ body{
 }
 input:focus {outline:none;}
 
-.rememberMe_checkbox{
+.check_idpw{
 	width: 300px;
-	height: 30px;
+	height: 20px;
 	
-	display: flex;
+      	display: flex;
 	font-size: 13px;
-	color: #4e4e4e;
+	color: #fa644b;
 	align-items: center;
 	justify-content: flex-start;
 }
-
 .signIn_button {
     background: rgba(96,96,0,0.5);
     color: white;
     border: 1px solid #e8e8e8;
     
     width: 300px;
-    margin-top: 35px;
+    margin-top: 30px;
     font-size: 18px;
     height:48px;
 
@@ -134,8 +135,7 @@ input:focus {outline:none;}
 
 	background: var(--white-color);
 	color: black;
-	border: solid 1.5px var(--border_black-color);
-         border-top-style: hidden;
+	border: none;
          border-radius: 0px 0px 10px 10px / 0px 0px 10px 10px;
          border-collapse: collapse;
           cursor: pointer;
@@ -150,9 +150,7 @@ input:focus {outline:none;}
 	font-size: 12px;
 	background: var(--background-gray-color);
 	color: gray;
-	border: solid 1.5px var(--ssss);
-         border-top-color: var(--border_black-color);
-        border-left-width: 0px;
+	border: none;
          border-radius: 0px 0px 10px 0px / 0px 0px 10px 0px;
           cursor: pointer;
 }
@@ -172,22 +170,26 @@ input:focus {outline:none;}
         top: 50%;
         left: 50%;
         transform: translate(-50%,-60%);
+
+  box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
+  -9px -9px 16px rgba(255, 255, 255, 0.6);
 }
 .signUp_section{
-         width:357px;
+         width:360px;
          height:416px;
  	display:flex;
 	flex-direction:column;
 	align-items:center;
         background:var(--white-color);
-        border: 1.5px solid var(--border_black-color);
-        border-bottom-width: 0px;
+        border: none;
        border-radius: 10px 10px 0px 10px / 10px 10px 0px 10px;
 }
 .signUpTitle{
        margin-top: 25px;
-       color: rgba(96,96,0,1);
-       font: 900 36px "굴림";
+       color: rgba(96,96,0,0.7);
+       font-weight: 900;
+       font-size: 36px;
+       font-familly: "굴림";
 }
 
 .signUp_name{
@@ -215,7 +217,7 @@ input:focus {outline:none;}
 	background: white;
 }
 .signUp_pw_check{
-         margin-top: 10px;
+         margin-top: 20px;
 	width: 300px;
 	height :40px;
 	border: solid 1px var(--border-gray-color );
@@ -270,7 +272,7 @@ input:focus {outline:none;}
     border: 1px solid #e8e8e8;
     
     width: 120px;
-    margin-top: 35px;
+    margin-top: 25px;
     font-size: 18px;
     height:48px;
     
@@ -282,6 +284,7 @@ input:focus {outline:none;}
     display: inline-block;
     border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
 
+    margin-left: 91px;
     margin-bottom: 15px;
 }
 .signUp_button:hover{
@@ -297,9 +300,7 @@ input:focus {outline:none;}
 	font-size: 12px;
 	background: var(--background-gray-color);
 	color: gray;
-	border: solid 1.5px var(--ssss);
-         border-top-color: var(--border_black-color);
-         border-right-width: 0px;
+	border: none;;
          border-radius: 0px 0px 0px 10px / 0px 0px 0px 10px;
           cursor: pointer;
          float: left;
@@ -314,8 +315,7 @@ input:focus {outline:none;}
 
 	background: var(--white-color);
 	color: black;
-	border: solid 1.5px var(--border_black-color);
-         border-top-width: 0px;
+	border: none;
          border-radius: 0px 0px 10px 10px / 0px 0px 10px 10px;
           cursor: pointer;
 }

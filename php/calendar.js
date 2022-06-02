@@ -92,7 +92,7 @@ var date = new Date();
 			
 			if(today.getFullYear()==date.getFullYear()&&today.getMonth()==date.getMonth()&&i==date.getDate()) 
             {
-				cell.innerHTML = "<div><font color = #AFAF7F>" + "<font size = 5px>" + str + "</div>";
+				cell.innerHTML = "<font color = #AFAF7F>" + "<font size = 5px>" + str;
             }
 		}
 		
