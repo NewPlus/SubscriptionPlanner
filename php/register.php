@@ -58,7 +58,7 @@
                     <input type="password" name="u_pw_check" placeholder="비밀번호 확인" onfocus="this.placeholder=''" onblur="this.placeholder='비밀번호 확인'" required>
                 </div>
   
-                <button class="signUp_button" type="summit">회원 가입</button>
+                <button class="signUp_button" type="summit">진행</button>
                 <?php
                     if ( $double_id == 1 ) {
                         echo "<p>사용자 ID가 중복되었습니다.</p>";

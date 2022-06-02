@@ -82,6 +82,13 @@
         $query_add_ott = "INSERT INTO ottList_t(strId, strOttName, intOttPay, intOttDate, strOttImg, strSrc) VALUES ('".$u_id."','".$strOttName."','".$intOttPay."','".$intOttDate."','".$strOttImg."','".$strSrc."');";
         mysqli_query($conn, $query_add_ott);
 
+        $query_resort = "ALTER TABLE ottList_t AUTO_INCREMENT=1; SET @COUNT = 0; UPDATE ottList_t SET intNumber = @COUNT:=@COUNT+1;";
+        mysqli_query($conn, $query_resort);
+        $query_resort = "SET @COUNT = 0;";
+        mysqli_query($conn, $query_resort);
+        $query_resort = "UPDATE ottList_t SET intNumber = @COUNT:=@COUNT+1;";
+        mysqli_query($conn, $query_resort);
+
         ?>
             <script>
                 window.close();
@@ -92,7 +99,7 @@
         ?>
             <script>
                 alert('이미 가입된 구독 상품입니다!');
-                window.location.href = "http://ottplanner.kro.kr/pro1/testphp/ottadd.php";
+                window.location.href = "http://ottplanner.kro.kr/pro1/fin/ottadd.php";
             </script>
         <?php
     }
@@ -100,7 +107,7 @@
         ?>
             <script>
                 alert('구독명을 선택하거나 입력해주세요!');
-                window.location.href = "http://ottplanner.kro.kr/pro1/testphp/ottadd.php";
+                window.location.href = "http://ottplanner.kro.kr/pro1/fin/ottadd.php";
             </script>
         <?php
     }
@@ -108,7 +115,7 @@
         ?>
             <script>
                 alert('날짜를 제대로 선택해주세요!');
-                window.location.href = "http://ottplanner.kro.kr/pro1/testphp/ottadd.php";
+                window.location.href = "http://ottplanner.kro.kr/pro1/fin/ottadd.php";
             </script>
         <?php
     }
@@ -116,7 +123,7 @@
         ?>
             <script>
                 alert('지불 금액을 입력해주세요!');
-                window.location.href = "http://ottplanner.kro.kr/pro1/testphp/ottadd.php";
+                window.location.href = "http://ottplanner.kro.kr/pro1/fin/ottadd.php";
             </script>
         <?php
     }

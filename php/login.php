@@ -31,7 +31,7 @@
                          session_start();
                          $_SESSION['id'] = $u_id;
                          $_SESSION['name'] = $u_name;
-                         header('Location: main_upper.php');
+                         header('Location: main.php');
                     }
                     else{
                          $wrong_pw = 1;
@@ -51,7 +51,7 @@
                <div class="signIn_pw">
                   <input type = "password" name = "u_pw" placeholder="Password" onfocus="this.placeholder=''" onblur="this.placeholder='Password'"><br>
                </div>
-               <div class="rememberMe_checkbox">
+               <div class="check_idpw">
                     <?php
                          if($empty_u == 1){
                               echo "<p>사용자 ID가 존재하지 않습니다.</p>";

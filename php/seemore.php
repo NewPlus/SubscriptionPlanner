@@ -13,6 +13,8 @@
     else {
         $u_id = $_GET['id'];
         $OttName = $_GET["ottname"];
+        $_SESSION['id'] = $u_id;
+        $_SESSION['name'] = $u_name;
     }
     
     $q_img = "select intOttPay, intOttDate from ottList_t where strId = '".$u_id."' and strOttName ='".$OttName."';";
@@ -49,9 +51,9 @@
         ?>
 
         
-        <a href=  >수정하기</a>
+        <a href="http://ottplanner.kro.kr/pro1/fin/ottmodify.php?ottname=<?php echo $OttName ?>">수정하기</a>
         &nbsp;&nbsp;&nbsp;
-        <a href=  >삭제하기</a>
+        <a href="http://ottplanner.kro.kr/pro1/fin/ottdelete.php?ottname=<?php echo $OttName ?>" >삭제하기</a>
 
     </div>
 

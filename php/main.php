@@ -7,17 +7,28 @@
     $conn = new mysqli($host, $dbuser, $dbpw, $dbname);
 ?>
 <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Main</title>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="main_style.css">
+    <script src = "js/calendar.js"></script>
+<link rel="stylesheet" href="calendar_style.css">
+
+</head>
 
 
+<body onload="showCalendar();">
   <!-- Session & UserId & Logout -->
-  <html>
-    <head>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <div align="center">
-            <div>
-                <?php
+  <header>
+    <div class="etcccc">
+    <?php
                     session_start();
                     if(empty($_SESSION['id'])) {
                         header('Location: login.php');
@@ -28,39 +39,32 @@
                         $_SESSION['id'] = $u_id;
                         $_SESSION['name'] = $u_name;
                     } 
-                ?>
-                
-                <form action="member_update.php" method="POST">
+    ?>
+
+    <button class = "header_buttons" type="summit" onclick="location.href='logout.php'"> 로그아웃 </button>
+    <form action="member_update.php" method="POST">
                     <input type="hidden" value="<?php echo $u_id ?>" name="u_id">
-                    <button class="signUp_button" type="summit"><?php echo $u_id; ?></button>
-                </form>
+                    <button class="header_buttons" type="summit">정보 수정</button>
+    </form>
+    <label><?php echo $u_name; ?>님 환영합니다.</label>
+    </div>
+    <div class="main_logo">
+    <a href="main.php"><img src="img/title1.png"></a>
+    </div>
+  </header>
 
-                <input type="button" value="Logout" onclick="location.href='logout.php'">
-        </div>
-    </body>
-    
-    <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>
-        SubscriptionPlanner
-    </title>
-
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-</html>
-  <!-- Session & UserId & Logout end -->
-
-  <!-- Image Swipe -->
-  <div>
-    <h4>당신이 구독한 상품들</h4>
-</div>
-<div class="swiper">
-<div class="swiper-wrapper">
+<main>
+  <div class="swiper">
+    <div class = "zz">
+      <h4>당신이 구독한 상품들</h4>
+    </div>
+    <div class="swiper-wrapper">
+    <div class="swiper-slide">
+        <a href = "#">
+            <div class = "text-wrap"> </div>
+            <img src="img/main_image.jpg">
+        </a>
+    </div>
     <?php
         $q_img = "select strOttImg, strOttName from ottList_t where strId = '".$u_id."';";
         $r_img = mysqli_query($conn, $q_img);
@@ -72,12 +76,7 @@
             window.open("seemore.php?id=<?php echo $_SESSION['id']?>&ottname="+ottNames, "더보기", "width=400, height=300, left=100, top=50");
         }
     </script>
-    <div class="swiper-slide">
-        <a href = "#">
-            <div class = "text-wrap"> </div>
-            <img src="img/main_image.jpg">
-        </a>
-    </div>
+
                 <div class="swiper-slide">
                     <a href = "#">
                         <div class = "text-wrap">
@@ -93,17 +92,15 @@
     </div>
     <div class="swiper-pagination"></div>
 
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-
-    <div class="swiper-scrollbar"></div>
+    <button class="swiper-button-prev"></button>
+    <button class="swiper-button-next"></button>
   </div>
+</div>
+<div class="banner"></div>
 
   <script src="js/main_upper.js"></script>
-  <!-- Image Swipe end -->
 
-  <!-- Calendar -->
-<html>
+
 <script>
 
 var today = new Date();         
@@ -281,12 +278,8 @@ var date = new Date();
 		</tr>
 
 	</table>
-</body>
-    <!-- Calendar end -->
-    
-    <!-- main_under -->
-        <!-- 추천 알고리즘 -->
-        <?php
+    <div class = "main_under">
+    <?php
             $q_maxOttName = "select strOttName from ottList_t group by strOttName having count(*)=(select max(OttCount) from (select strOttName, count(*) as OttCount from ottList_t group by strOttName) as result);";
             $r_maxOttName = mysqli_query($conn, $q_maxOttName);
             while($row = mysqli_fetch_array($r_maxOttName)){
@@ -325,16 +318,16 @@ var date = new Date();
             }
             
         ?>
-    <div align="center">
+    <div class="recommend" align="center">
         <?php
             if($flag == 0){
-                echo "<h4> ".$u_name."님! 전체의 ".(int)($a_maxOttCount/$b_allCount*100)."%가 선택한 '".$maxOttName."'을 추천합니다!</h4><br>";
+                echo "<h4> ".$u_name."님! 전체의 ".($a_maxOttCount/$b_allCount*100)."%가 선택한 '".$maxOttName."'을 추천합니다!</h4><br>";
                 echo "<a href=".$src." target='_blank'>더 보기</a> ";
             }
         ?>
     </div>
 
-    <div>
+    <div class="due_to_pay">
     <?php
         $q_img = "select intOttPay, intOttDate, strOttName from ottList_t where strId = '".$u_id."';";
         $r_img = mysqli_query($conn, $q_img);
@@ -362,11 +355,23 @@ var date = new Date();
         }
     ?>
     
-    <script>
-        function showPopup_add() { window.open("ottadd.php", "추가화면", "width=500, height=300, left=100, top=50"); }
-    </script>
-    <p><a href="javascript:showPopup_add()">+</a></p>
-    
-    <!-- main_under end -->
+    <button class="plus" onclick="showPopup_add();">+</button>
+    </div>
+
+    </div>
+
+</main>
+<footer>
+    <div class = "copyright">
+        <h4>COPYRIGHT IT정보공학과 창의적공학설계 11조</h4>
+    </div>
+</footer>
+
+<script src="main_upper.js"></script>
+<script>
+        function showPopup_add() { window.open("ottadd.php", "추가화면", "width=296, height=375, left=100, top=50"); }
+</script>
+ 
+</body>  
 </html>
         

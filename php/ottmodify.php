@@ -6,7 +6,10 @@
     else {
         $u_id = $_SESSION['id'];
         $u_name = $_SESSION['name'];
+        $_SESSION['id'] = $u_id;
+        $_SESSION['name'] = $u_name;
     }
+    $strOttName = $_GET['ottname'];
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +18,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>구독 서비스 목록 추가</title> 
+    <title>구독 서비스 수정하기</title> 
     <link rel="stylesheet" href="popup_style.css">
 </head>
 <body>
@@ -56,23 +59,10 @@
     </script>
 
     <div class = "popup_main" align="center">
-        <form action="ottadd_check.php" method="POST">
+        <form action="ottmodify_check.php" method="POST">
         <div class = "sub_name">    
-            <label>구독 서비스 이름</label>
-          <p></p>
-            <select name="strOttNames" id="strOttNames" value="Youtube Premium" onchange="jsChselect(this.value);">
-                <option value="Youtube Premium">Youtube Premium</option>       
-                <option value="Netflix">Netflix</option> 
-                <option value="Disney Plus">Disney+</option> 
-                <option value="Apple tv Plus">Apple tv+</option> 
-                <option value="Tving">Tving</option> 
-                <option value="Watcha">Watcha</option> 
-                <option value="Wavve">Wavve</option> 
-                <option value="Coupang play">Coupang play</option> 
-                <option value="Ms office 365">Ms office 365</option> 
-                <option value="기타">기타</option> 
-            </select>
-            <input type="text" name="tbOthers" id="tbOthers" value="" style="display:none" placeholder="기타 (직접입력)" /> 
+            <label><?php echo $strOttName ?></label>
+            <input type="hidden" name="strOttNames" value="<?php echo $strOttName ?>" />
         </div>
         <div class = "sub_mory">
             <label>결제 기간 종류</label>
@@ -109,7 +99,7 @@
             </select>
             <h4> 일 </h4>
         </div>
-            <button class = "subplus_button" type="summit"> 추가 </button>
+            <button class = "subplus_button" type="summit"> 수정 </button>
         </form>
     </div>
 </body>

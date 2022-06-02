@@ -22,13 +22,12 @@ body{
 
 
 table#calendar{
-position: absolute;
-  top: 130%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin-top: 100px;
+  margin-left: 50%;
+  transform: translate(-50%, 0%);
 
-  height: 600px;
-  width: 600px;
+  height: 630px;
+  width: 1120px;
   border-spacing: 0;
         background:var(--white-color);
   color: #212121;
