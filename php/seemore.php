@@ -6,10 +6,16 @@
 
     $conn = new mysqli($host, $dbuser, $dbpw, $dbname);
 
-    $OttName = $_GET["ottname"]; 
-    $u_id = $_GET["id"];
+    session_start();
+    if(empty($_GET['id'])) {
+        header('Location: login.php');
+    }
+    else {
+        $u_id = $_GET['id'];
+        $OttName = $_GET["ottname"];
+    }
     
-    $q_img = "select intOttPay, intOttDate, strOttName from ottList_t where strId = '".$u_id."' and strOttName ='".$OttName."';";
+    $q_img = "select intOttPay, intOttDate from ottList_t where strId = '".$u_id."' and strOttName ='".$OttName."';";
     $r_img = mysqli_query($conn, $q_img);
     while($row = mysqli_fetch_array($r_img)){
         $OttPay = $row['intOttPay'];
@@ -29,7 +35,18 @@
     <div align="center">
         <p><?php echo $OttName ?></p>
         <p>매월 <?php echo $OttPay ?>\</p>
-        <p>매월 <?php echo $OttDate ?>일 결제</p>
+        <?php 
+            if($OttDate > 100){
+                ?>
+                <p>매년 <?php echo intdiv($OttDate,100) ?>월 <?php echo fmod($OttDate, 100) ?>일 결제</p>
+                <?php
+            }
+            else{
+                ?>
+                <p>매월 <?php echo $OttDate ?>일 결제</p>
+                <?php
+            }
+        ?>
 
         
         <a href=  >수정하기</a>

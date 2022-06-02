@@ -25,6 +25,8 @@
                     else {
                         $u_id = $_SESSION['id'];
                         $u_name = $_SESSION['name'];
+                        $_SESSION['id'] = $u_id;
+                        $_SESSION['name'] = $u_name;
                     } 
                 ?>
                 
@@ -66,7 +68,9 @@
             $ottNames = $row['strOttName'];
     ?>
     <script>
-        function showPopup(ottNames) { window.open("seemore.php?id=<?php echo $_SESSION['id']?>&ottname="+ottNames, "더보기", "width=400, height=300, left=100, top=50"); }
+        function showPopup(ottNames) {
+            window.open("seemore.php?id=<?php echo $_SESSION['id']?>&ottname="+ottNames, "더보기", "width=400, height=300, left=100, top=50");
+        }
     </script>
                 <div class="swiper-slide">
                     <a href = "#">
@@ -94,7 +98,153 @@
 
   <!-- Calendar -->
 <html>
-<script src = "js/calendar.js"></script>
+<script>
+
+var today = new Date();         
+var date = new Date();
+	
+	//������
+	function beforeMonth() { 
+		today = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate());
+		showCalendar(); 
+	}
+	
+	//������
+	function nextMonth() {
+		today = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
+		showCalendar();
+	}
+	
+	//���ü���
+	function thisMonth(){
+		today = new Date();
+		showCalendar();
+	}
+
+	function showCalendar()
+	{
+		var nMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+		var lastDate = new Date(today.getFullYear(), today.getMonth() + 1, 0); 
+		var tbcal = document.getElementById("calendar"); 
+		var yearmonth = document.getElementById("yearmonth"); 
+		yearmonth.innerHTML = today.getFullYear() + "년 "+ (today.getMonth() + 1) + "월"; 
+
+
+		while (tbcal.rows.length > 2) {
+			tbcal.deleteRow(tbcal.rows.length - 1);
+		}
+		var row = 0;
+
+		row = tbcal.insertRow();
+
+		var cnt = 0;
+        if(nMonth.getDay()==0){
+            var dayCheck = 7;
+        }else{
+            var dayCheck = nMonth.getDay();
+        }
+		
+		for (i = 0; i < nMonth.getDay(); i++) {
+			cnt = cnt + 1;	
+			cell = row.insertCell();
+		}
+
+
+		// �޷� ���
+		for (i = 1; i <= lastDate.getDate(); i++)
+		{ 
+			cell = row.insertCell();
+			
+			var str="";
+			
+			str += "<div>"+i+"</div>";
+            if(i<10){
+                var day = "0"+i; 
+            }else{
+                var day = i;
+            }              	
+			str += "<div id='"+today.getMonth()+day+"'></div>";
+			cell.innerHTML = str;
+			
+			cnt = cnt + 1;
+            
+			if (cnt % 7 == 0) { //�����
+				var str="";
+				str += "<div>"+i+"</div>";
+                if(i<10){
+                    var day = "0"+i; 
+                }else{
+                    var day = i;
+                }                	
+				str += "<div id='"+today.getMonth()+day+"'>"+"</div>";
+				cell.innerHTML = "<font color = #3737FF>" + str;
+				row = calendar.insertRow();
+			}
+			if (cnt % 7 == 1) { //�Ͽ���
+				var str="";
+				str += "<div>"+i+"</div>";
+                if(i<10){
+                    var day = "0"+i; 
+                }else{
+                    var day = i;
+                }     
+				str += "<div id='"+today.getMonth()+day+"'>"+"</div>";
+				cell.innerHTML = "<font color = #FF3737>" + str;                
+			}
+			
+			if(today.getFullYear()==date.getFullYear()&&today.getMonth()==date.getMonth()&&i==date.getDate()) 
+            {
+				cell.innerHTML = "<div><font color = #AFAF7F>" + "<font size = 5px>" + str + "</div>";
+            }
+		}
+		<?php
+            $q_img = "select intOttDate, strOttName from ottList_t where strId = '".$u_id."';";
+            $r_img = mysqli_query($conn, $q_img);
+
+            $dateMonth = 0;
+            $dateDay = 0;
+            while($row = mysqli_fetch_array($r_img)){
+                $ottDate = $row['intOttDate'];
+                $ottNames = $row['strOttName'];
+
+                if($ottDate < 100){
+            ?>
+            var tdId = today.getMonth();
+                if(<?php echo $ottDate ?> > 30 && (today.getMonth() == 3 || today.getMonth() == 5 || today.getMonth() == 8 || today.getMonth() == 10)){
+                    tdId = tdId + "30";
+                }
+                else if(<?php echo $ottDate ?> > 28 && today.getMonth() == 1){
+                    tdId = tdId + "28";
+                }
+                else{
+                    tdId = tdId + "<?php
+                        if($ottDate < 10){
+                            echo "0{$ottDate}";
+                        }
+                        else{
+                            echo $ottDate;
+                        }
+                    ?>";
+                }
+            var str = "<?php echo $ottNames ?>";
+            <?php
+                }
+                else{
+                ?>
+                    var tdId = "<?php echo $ottDate ?>";
+                    var str = "<?php echo $ottNames ?>";
+                <?php
+                }
+                ?>
+                document.getElementById(tdId).innerHTML = str;
+                <?php
+            }
+            ?>
+	}
+
+
+
+</script>
 <link rel="stylesheet" href="calendar_style.css">
 <body onload="showCalendar();">
 
@@ -172,19 +322,44 @@
     <div align="center">
         <?php
             if($flag == 0){
-                echo "<h4> ".$u_name."님! 전체의 ".($a_maxOttCount/$b_allCount*100)."%가 선택한 '".$maxOttName."'을 추천합니다!</h4><br>";
+                echo "<h4> ".$u_name."님! 전체의 ".(int)($a_maxOttCount/$b_allCount*100)."%가 선택한 '".$maxOttName."'을 추천합니다!</h4><br>";
                 echo "<a href=".$src." target='_blank'>더 보기</a> ";
             }
         ?>
     </div>
 
     <div>
+    <?php
+        $q_img = "select intOttPay, intOttDate, strOttName from ottList_t where strId = '".$u_id."';";
+        $r_img = mysqli_query($conn, $q_img);
+        
+        $dateMonth = 0;
+        $dateDay = 0;
+        while($row = mysqli_fetch_array($r_img)){
+            $ottPay = $row['intOttPay'];
+            $ottDate = $row['intOttDate'];
+            if($ottDate > 100){
+                $dateMonth = intdiv($ottDate,100)+1;
+                $dateDay = $ottDate - (intdiv($ottDate, 100)*100);
+            }
+            $ottNames = $row['strOttName'];
+            if($ottDate < 100){
+    ?>
+    <h4 onclick = "showPopup('<?php echo $ottNames ?>');"><?php echo $ottNames ?> / 월 <?php echo $ottPay ?>원/ 매월 <?php echo $ottDate ?>일 납부</h4>
+    <?php
+            }
+            else{
+    ?>
+    <h4 onclick = "showPopup('<?php echo $ottNames ?>');"><?php echo $ottNames ?> / 연 <?php echo $ottPay ?>원/ <?php echo $dateMonth ?>월 <?php echo $dateDay ?>일 납부</h4>
+    <?php
+            }
+        }
+    ?>
     
-    <h4>YouTube Premium / 월 8,900원/ 매월 15일 / 오늘 납부</h4>
-    <h4>Netflix / 월 9,500원 / 매월 15일 / 오늘 납부</h4>
-    <h4>Diseny+ / 9,900원 / 매월 17일 / 2일 후 납부</h4>
-    <h4>Microsoft Office / 연 119,000원 / 매년 8월 19일 / 4일 후 납부</h4>
-    <p><a href=  >+</a></p>
+    <script>
+        function showPopup_add() { window.open("ottadd.php", "추가화면", "width=500, height=300, left=100, top=50"); }
+    </script>
+    <p><a href="javascript:showPopup_add()">+</a></p>
     
     <!-- main_under end -->
 </html>
