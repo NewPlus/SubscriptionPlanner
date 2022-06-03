@@ -73,7 +73,7 @@
     ?>
     <script>
         function showPopup(ottNames) {
-            window.open("seemore.php?id=<?php echo $_SESSION['id']?>&ottname="+ottNames, "더보기", "width=400, height=300, left=100, top=50");
+            window.open("seemore.php?id=<?php echo $_SESSION['id']?>&ottname="+ottNames, "더보기", "width=461, height=340, left=100, top=50");
         }
     </script>
 
@@ -98,8 +98,7 @@
 </div>
 <div class="banner"></div>
 
-  <script src="js/main_upper.js"></script>
-
+<script src="js/main_upper.js"></script>
 
 <script>
 
@@ -210,36 +209,39 @@ var date = new Date();
                 $ottDate = $row['intOttDate'];
                 $ottNames = $row['strOttName'];
 
-                if($ottDate < 100){
-            ?>
-            var tdId = today.getMonth();
-                if(<?php echo $ottDate ?> > 30 && (today.getMonth() == 3 || today.getMonth() == 5 || today.getMonth() == 8 || today.getMonth() == 10)){
-                    tdId = tdId + "30";
-                }
-                else if(<?php echo $ottDate ?> > 28 && today.getMonth() == 1){
-                    tdId = tdId + "28";
-                }
-                else{
-                    tdId = tdId + "<?php
-                        if($ottDate < 10){
-                            echo "0{$ottDate}";
-                        }
-                        else{
-                            echo $ottDate;
-                        }
-                    ?>";
-                }
-            var str = "<?php echo $ottNames ?>";
-            <?php
-                }
-                else{
                 ?>
-                    var tdId = "<?php echo $ottDate ?>";
-                    var str = "<?php echo $ottNames ?>";
+                var tdId = "";
+                //var str = "<?php //echo $ottNames ?>";
                 <?php
+
+                if($ottDate > 100){
+                    ?>
+                    tdId = tdId + "<?php echo $ottDate ?>";
+                    var str = "<?php echo $ottNames ?>";
+                    <?php
+                }
+                else{
+                    ?>
+                    tdId = tdId + today.getMonth();
+                    console.log(tdId);
+                    if(<?php echo $ottDate ?> > 30 && (today.getMonth() == 3 || today.getMonth() == 5 || today.getMonth() == 8 || today.getMonth() == 10)){
+                        tdId = tdId + "30";
+                    }
+                    else if(<?php echo $ottDate ?> > 28 && today.getMonth() == 1){
+                        tdId = tdId + "28";
+                    }
+                    else{
+                        tdId = tdId + 
+                        "<?php
+                        if($ottDate < 10) echo "0{$ottDate}";
+                        else echo $ottDate;
+                        ?>";
+                    }
+                    var str = "<?php echo $ottNames ?>";
+                    <?php
                 }
                 ?>
-                document.getElementById(tdId).innerHTML = str;
+                if(document.getElementById(tdId)!=null)document.getElementById(tdId).innerHTML = str;
                 <?php
             }
             ?>
@@ -249,7 +251,6 @@ var date = new Date();
 
 </script>
 <link rel="stylesheet" href="calendar_style.css">
-<body onload="showCalendar();">
 
 	<table align="center" id="calendar">
 <thead>
@@ -321,13 +322,13 @@ var date = new Date();
     <div class="recommend" align="center">
         <?php
             if($flag == 0){
-                echo "<h4> ".$u_name."님! 전체의 ".($a_maxOttCount/$b_allCount*100)."%가 선택한 '".$maxOttName."'을 추천합니다!</h4><br>";
+                echo "<h4> ".$u_name."님! 이용자 전체의 ".round($a_maxOttCount/$b_allCount*100)."%가 선택한 '".$maxOttName."'을 추천합니다!</h4>";
                 echo "<a href=".$src." target='_blank'>더 보기</a> ";
             }
         ?>
     </div>
 
-    <div class="due_to_pay">
+    <div class="due_to_pay" align="center">
     <?php
         $q_img = "select intOttPay, intOttDate, strOttName from ottList_t where strId = '".$u_id."';";
         $r_img = mysqli_query($conn, $q_img);
@@ -363,13 +364,12 @@ var date = new Date();
 </main>
 <footer>
     <div class = "copyright">
-        <h4>COPYRIGHT IT정보공학과 창의적공학설계 11조</h4>
+        <h4>COPYRIGHT © IT정보공학과 창의적공학설계 11조</h4>
     </div>
 </footer>
 
-<script src="main_upper.js"></script>
 <script>
-        function showPopup_add() { window.open("ottadd.php", "추가화면", "width=296, height=375, left=100, top=50"); }
+        function showPopup_add() { window.open("ottadd.php", "추가화면", "width=461, height=405, left=100, top=50"); }
 </script>
  
 </body>  

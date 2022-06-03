@@ -11,7 +11,8 @@
         header('Location: login.php');
     }
     else {
-        $u_id = $_GET['id'];
+        $u_id =  $_SESSION['id'];
+        $u_name = $_SESSION['name'];
         $OttName = $_GET["ottname"];
         $_SESSION['id'] = $u_id;
         $_SESSION['name'] = $u_name;
