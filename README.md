@@ -24,6 +24,7 @@
 - 추천 알고리즘 php로 구현 완료(2022.05.24) <PHP, MySQL> : 이용환
 - 로그인 및 회원가입 디자인 수정(2022.05.25) <HTML, CSS> : 나현우
 - 달력 디자인 적용(2022.05.26) <HTML, CSS, JS> : 나현우
+- ott 사진 다운로드 & 정리(2022.05.27) : 윤도연
 - 더보기 완료(2022.05.27) <HTML, JS> : 이재연
 - 구독 프로그램 추가화면 팝업창 완료(2022.05.27) <HTML> : 윤도연
 - 구독 프로그램 정보화면 팝업창 php로 DB 연동 완료(2022.05.31) <PHP, MySQL> : 이용환
@@ -31,6 +32,7 @@
 - 캘린더 병합 충돌 오류 수정, 추가화면 콤보박스 오류 수정(2022.06.01) <html, js> : 이재연
 - 구독 프로그램 리스트 더 보기 적용, 메인 캘린더 php로 DB 연동 수정, 구독 프로그램 추가하기 화면 php로 DB 연동(2022.06.01) <PHP, MySQL> : 이용환
 - 말일 고려 달력 일정 표시(2022.06.01) <PHP, js, MySQL> : 이용환
+- 구독 수정하기 팝업창 완료(2022.06.02) <HTML, JS> : 윤도연
 - 수정하기, 삭제하기 php로 DB 연동 완료(2022.06.02) <PHP, js, MySQL> : 이용환
 - 캘린더 오류(연 단위 다음에 등록된 월 단위 일정이 안뜨는 오류) 디버깅 완료(2022.06.04) <PHP, js> : 이용환
 - seemore 오류(연 단위 일정은 월 표시가 한 달 전으로 표기된 오류) 디버깅 완료(2022.06.04) <PHP, js> : 이용환
@@ -43,3 +45,4 @@
 - 메인화면(달력 날짜에 맞게 이동하는 기능을 참고하였습니다.) <이재연> : https://8millimeters.tistory.com/12
 - CSS (뉴모피즘 적용 예시 참고하였습니다.) <나현우> : https://ldrerin.tistory.com/467?category=772248
 - JS (Select 선택 시, 이벤트 발생 기능을 참고하였습니다.) <이용환> : https://epthffh.tistory.com/entry/javascript-%EC%85%80%EB%A0%89%ED%8A%B8%EB%B0%95%EC%8A%A4SelectBox-%EB%B0%94%EB%A1%9C%EC%8B%A4%ED%96%89
+- OTT사진 (구글에서 다운받았습니다.) <윤도연> : https://www.google.com/search?q=ott%EB%A1%9C%EA%B3%A0&tbm=isch&ved=2ahUKEwibppjz7ZP4AhVPBaYKHY1eB8oQ2-cCegQIABAA&oq=ott%EB%A1%9C%EA%B3%A0&gs_lcp=CgNpbWcQAzoICAAQgAQQsQM6BQgAEIAEOgQIABAYUNoFWOkKYJsNaAFwAHgBgAFuiAHMBZIBAzEuNpgBAKABAaoBC2d3cy13aXotaW1nwAEB&sclient=img&ei=MFibYpvODs-KmAWNvZ3QDA&bih=916&biw=943&hl=ko#imgrc=RTwiFmXk47bgeM
